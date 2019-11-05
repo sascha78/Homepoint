@@ -380,7 +380,10 @@ void TFT_eSPI::init(uint8_t tc)
   // This loads the driver specific initialisation code  <<<<<<<<<<<<<<<<<<<<< ADD NEW DRIVERS TO THE LIST HERE <<<<<<<<<<<<<<<<<<<<<<<
 #if   defined (ILI9341_DRIVER)
     #include "TFT_Drivers/ILI9341_Init.h"
-
+  
+#elif defined (ILI9342_DRIVER)
+    #include "TFT_Drivers/ILI9342_Init.h"
+  
 #elif defined (ST7735_DRIVER)
     tabcolor = tc;
     #include "TFT_Drivers/ST7735_Init.h"
@@ -455,6 +458,9 @@ void TFT_eSPI::setRotation(uint8_t m)
 #if   defined (ILI9341_DRIVER)
     #include "TFT_Drivers/ILI9341_Rotation.h"
 
+#elif defined (ILI9342_DRIVER)
+    #include "TFT_Drivers/ILI9342_Rotation.h"
+  
 #elif defined (ST7735_DRIVER)
     #include "TFT_Drivers/ST7735_Rotation.h"
 
