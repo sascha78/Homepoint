@@ -48,11 +48,11 @@
   writedata(0x10);   //SAP[2:0];BT[3:0]
 
   writecommand(ILI9341_VMCTR1);    //VCM control
-  writedata(0x3e);
-  writedata(0x28);
+  writedata(0x2b);
+  writedata(0x2b);
 
   writecommand(ILI9341_VMCTR2);    //VCM control2
-  writedata(0x86);  //--
+  writedata(0xc0);  //--
 
   writecommand(ILI9341_MADCTL);    // Memory Access Control
 #ifdef M5STACK
@@ -114,11 +114,13 @@
   writedata(0x0F);
 
   writecommand(ILI9341_SLPOUT);    //Exit Sleep
+  writedata(0x80);
  
   spi_end();
   delay(120);
   spi_begin();
   
   writecommand(ILI9341_DISPON);    //Display on
+  writedata(0x80);
 
 }
