@@ -56,13 +56,13 @@ static const unsigned long MinsBeforeScreenSleep = 10; // Minutes before putting
   #define BUTTON_A_PIN 0 // unused
   #define BUTTON_B_PIN 0 // unused
   #define BUTTON_C_PIN 0 // unused
-  static const int Rotation = 3; // Set rotation angle
+  static const int Rotation = 4; // Set rotation angle
   using NavigationDriver = gfx::TouchDriver;
   static const bool ButtonsArePullUp = false;
   auto ScreenOnOffSwitch = [](ScreenDriver* driver, bool on)
   {
     const auto state = on ? LOW : HIGH;
-    const auto screenPower = on ? ILI9341_DISPON : ILI9341_DISPOFF;
+    const auto screenPower = on ? ILI9342_DISPON : ILI9342_DISPOFF;
     digitalWrite(TFT_LED, state);
     driver->writeCommand(screenPower);
   };

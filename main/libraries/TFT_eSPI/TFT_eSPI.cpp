@@ -99,6 +99,7 @@ inline void TFT_eSPI::spi_end_read(void){
 #endif
 }
 
+/**
 #if defined (TOUCH_CS) && defined (SPI_TOUCH_FREQUENCY) // && !defined(ESP32_PARALLEL)
 
   inline void TFT_eSPI::spi_begin_touch(void){
@@ -132,6 +133,7 @@ inline void TFT_eSPI::spi_end_read(void){
   }
 
 #endif
+**/
 
 /***************************************************************************************
 ** Function name:           TFT_eSPI
@@ -146,12 +148,6 @@ TFT_eSPI::TFT_eSPI(int16_t w, int16_t h)
 #ifdef TFT_CS
   digitalWrite(TFT_CS, HIGH); // Chip select high (inactive)
   pinMode(TFT_CS, OUTPUT);
-#endif
-
-// Configure chip select for touchscreen controller if present
-#ifdef TOUCH_CS
-  digitalWrite(TOUCH_CS, HIGH); // Chip select high (inactive)
-  pinMode(TOUCH_CS, OUTPUT);
 #endif
 
 #ifdef TFT_WR
@@ -383,7 +379,6 @@ void TFT_eSPI::init(uint8_t tc)
   
 #elif defined (ILI9342_DRIVER)
     #include "TFT_Drivers/ILI9342_Init.h"
-  
 #elif defined (ST7735_DRIVER)
     tabcolor = tc;
     #include "TFT_Drivers/ST7735_Init.h"
@@ -460,7 +455,6 @@ void TFT_eSPI::setRotation(uint8_t m)
 
 #elif defined (ILI9342_DRIVER)
     #include "TFT_Drivers/ILI9342_Rotation.h"
-  
 #elif defined (ST7735_DRIVER)
     #include "TFT_Drivers/ST7735_Rotation.h"
 
@@ -5338,17 +5332,13 @@ void TFT_eSPI::getSetup(setup_t &tft_settings)
   tft_settings.pin_tft_d7 = -1;
 #endif
 
-#if defined (TOUCH_CS)
-  tft_settings.pin_tch_cs   = TOUCH_CS;
-  tft_settings.tch_spi_freq = SPI_TOUCH_FREQUENCY/100000;
-#else
   tft_settings.pin_tch_cs   = -1;
   tft_settings.tch_spi_freq = 0;
-#endif
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
-#ifdef TOUCH_CS
+
+#ifdef TOUCH_FT6206
   #include "Extensions/Touch.cpp"
   #include "Extensions/Button.cpp"
 #endif

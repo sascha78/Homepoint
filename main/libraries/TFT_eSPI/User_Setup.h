@@ -16,7 +16,8 @@
 // ##################################################################################
 
 // Only define one driver, the other ones must be commented out
-#define ILI9341_DRIVER
+//#define ILI9341_DRIVER
+#define ILI9342_DRIVER
 //#define ST7735_DRIVER      // Define additional parameters below for this display
 //#define ILI9163_DRIVER     // Define additional parameters below for this display
 //#define S6D02A1_DRIVER
@@ -43,7 +44,7 @@
 
 // For M5Stack ESP32 module with integrated ILI9341 display ONLY, remove // in line below
 
-#define M5STACK
+// #define M5STACK
 
 // For ST7789, ST7735 and ILI9163 ONLY, define the pixel width and height in portrait orientation
 // #define TFT_WIDTH  80
@@ -134,14 +135,16 @@
 // #define TOUCH_CS 14
 // #define TOUCH_IRQ 2
 
+#define TOUCH_FT6206
+
 #define TFT_MISO 19
 #define TFT_MOSI 23
 #define TFT_SCLK 18
-#define TFT_CS   14  // Chip select control pin
-#define TFT_DC   27  // Data Command control pin
-#define TFT_RST  33  // Reset pin (could connect to Arduino RESET pin)
-#define TFT_BL   32  // LED back-light (required for M5Stack)
-#define TFT_LED   32
+#define TFT_CS   5  // Chip select control pin
+#define TFT_DC   16  // Data Command control pin
+#define TFT_RST  17  // Reset pin (could connect to Arduino RESET pin)
+#define TFT_BL   12  // LED back-light (required for M5Stack)
+#define TFT_LED   12
 
 // ArduiTouch
 // #define TFT_CS   5

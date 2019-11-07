@@ -1,5 +1,5 @@
 
-// This is the command sequence that initialises the ILI9341 driver
+// This is the command sequence that initialises the ILI9342 driver
 //
 // This setup information uses simple 8 bit SPI writecommand() and writedata() functions
 //
@@ -41,34 +41,34 @@
   writedata(0x00);
   writedata(0x00);
 
-  writecommand(ILI9341_PWCTR1);    //Power control
+  writecommand(ILI9342_PWCTR1);    //Power control
   writedata(0x23);   //VRH[5:0]
 
-  writecommand(ILI9341_PWCTR2);    //Power control
+  writecommand(ILI9342_PWCTR2);    //Power control
   writedata(0x10);   //SAP[2:0];BT[3:0]
 
-  writecommand(ILI9341_VMCTR1);    //VCM control
+  writecommand(ILI9342_VMCTR1);    //VCM control
   writedata(0x2b);
   writedata(0x2b);
 
-  writecommand(ILI9341_VMCTR2);    //VCM control2
+  writecommand(ILI9342_VMCTR2);    //VCM control2
   writedata(0xc0);  //--
 
-  writecommand(ILI9341_MADCTL);    // Memory Access Control
+  writecommand(ILI9342_MADCTL);    // Memory Access Control
 #ifdef M5STACK
   writedata(0xA8); // Rotation 0 (portrait mode)
 #else
   writedata(0x48); // Rotation 0 (portrait mode)
 #endif
 
-  writecommand(ILI9341_PIXFMT);
+  writecommand(ILI9342_PIXFMT);
   writedata(0x55);
 
-  writecommand(ILI9341_FRMCTR1);
+  writecommand(ILI9342_FRMCTR1);
   writedata(0x00);
   writedata(0x13); // 0x18 79Hz, 0x1B default 70Hz, 0x13 100Hz
 
-  writecommand(ILI9341_DFUNCTR);    // Display Function Control
+  writecommand(ILI9342_DFUNCTR);    // Display Function Control
   writedata(0x08);
   writedata(0x82);
   writedata(0x27);
@@ -76,10 +76,10 @@
   writecommand(0xF2);    // 3Gamma Function Disable
   writedata(0x00);
 
-  writecommand(ILI9341_GAMMASET);    //Gamma curve selected
+  writecommand(ILI9342_GAMMASET);    //Gamma curve selected
   writedata(0x01);
 
-  writecommand(ILI9341_GMCTRP1);    //Set Gamma
+  writecommand(ILI9342_GMCTRP1);    //Set Gamma
   writedata(0x0F);
   writedata(0x31);
   writedata(0x2B);
@@ -96,7 +96,7 @@
   writedata(0x09);
   writedata(0x00);
 
-  writecommand(ILI9341_GMCTRN1);    //Set Gamma
+  writecommand(ILI9342_GMCTRN1);    //Set Gamma
   writedata(0x00);
   writedata(0x0E);
   writedata(0x14);
@@ -113,14 +113,14 @@
   writedata(0x36);
   writedata(0x0F);
 
-  writecommand(ILI9341_SLPOUT);    //Exit Sleep
+  writecommand(ILI9342_SLPOUT);    //Exit Sleep
   writedata(0x80);
  
   spi_end();
   delay(120);
   spi_begin();
   
-  writecommand(ILI9341_DISPON);    //Display on
+  writecommand(ILI9342_DISPON);    //Display on
   writedata(0x80);
 
 }

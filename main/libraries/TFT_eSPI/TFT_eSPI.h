@@ -100,6 +100,7 @@
 
 #include <Arduino.h>
 #include <Print.h>
+#include <Wire.h>
 
 #include <pgmspace.h>
 
@@ -245,14 +246,8 @@
 #endif
 
 // chip select signal for touchscreen
-#ifndef TOUCH_CS
   #define T_CS_L // No macro allocated so it generates no code
   #define T_CS_H // No macro allocated so it generates no code
-#else
-  #define T_CS_L digitalWrite(TOUCH_CS, LOW)
-  #define T_CS_H digitalWrite(TOUCH_CS, HIGH)
-#endif
-
 
 #ifdef TFT_WR
   #if defined (ESP32)
@@ -902,7 +897,7 @@ class TFT_eSPI : public Print {
 #endif
 
 // Load the Touch extension
-#ifdef TOUCH_CS
+#ifdef TOUCH_FT6206
   #include "Extensions/Touch.h"
 #endif
 

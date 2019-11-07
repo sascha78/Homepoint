@@ -1,5 +1,5 @@
 
-// This is the command sequence that rotates the ILI9341 driver coordinate frame
+// This is the command sequence that rotates the ILI9342 driver coordinate frame
 
   rotation = m % 8; // Limit the range of values to 0-7
 

@@ -74,6 +74,9 @@
 #if   defined (ILI9341_DRIVER)
      #include <TFT_Drivers/ILI9341_Defines.h>
      #define  TFT_DRIVER 0x9341
+#elif defined (ILI9342_DRIVER)
+     #include <TFT_Drivers/ILI9342_Defines.h>
+     #define  TFT_DRIVER 0x9342
 #elif defined (ST7735_DRIVER)
      #include <TFT_Drivers/ST7735_Defines.h>
      #define  TFT_DRIVER 0x7735
