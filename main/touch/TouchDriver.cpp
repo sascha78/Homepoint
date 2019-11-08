@@ -8,6 +8,7 @@ namespace gfx
     mTouch(tftDriver)
   {
     mCurrentEvent = {{0,0,0}, TouchState::NoTouch, xTaskGetTickCount()};
+	mTouch->setupFT6206();
   };
 
   auto TouchDriver::touchPoint() -> tl::optional<TouchEvent>

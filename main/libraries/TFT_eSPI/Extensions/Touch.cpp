@@ -10,7 +10,7 @@
 
 // See license in root directory.
 
-//#define FT6206_DEBUG
+#define FT6206_DEBUG
 //#define I2C_DEBUG
 
 /***************************************************************************************
@@ -27,8 +27,8 @@ uint8_t TFT_eSPI::getTouch(uint16_t *x, uint16_t *y, uint16_t threshold){
     *y = 0;
     return false;
   } else {
-    *x = touchX[0];
-    *y = touchY[0];
+    *x = 320 - touchX[0];
+    *y = 240 - touchY[0];
     return 10;
   }
 }
