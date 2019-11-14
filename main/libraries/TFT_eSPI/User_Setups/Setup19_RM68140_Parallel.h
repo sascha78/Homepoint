@@ -3,7 +3,7 @@
 #define ESP32_PARALLEL
 
 
-#define ILI9481_DRIVER
+#define RM68140_DRIVER
 
 
 // ESP32 pins used for UNO format board
